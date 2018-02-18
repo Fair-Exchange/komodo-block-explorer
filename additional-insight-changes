@@ -1,8 +1,8 @@
-"this file had to be altered because your coin is not listed on poloniex.  I entered in the static value of BTC/KMD. I got this value from the komodo page at https://komodoplatform.com/faq/
+"this file had to be altered because your coin is not listed on poloniex.  I entered in the static value of BTC/SAFE. I got this value from the safecoin page at https://safecoinplatform.com/faq/
 
 edit the static value for "self.poloniexRate" whenever the value of your coin changes, or point it at a self-updating resource."
 
-/home/ket/komodo-explorer/node_modules/insight-api-komodo/lib/currency.js :
+/home/ket/safecoin-explorer/node_modules/insight-api-safecoin/lib/currency.js :
 
 ```
 'use strict';
@@ -14,7 +14,7 @@ function CurrencyController(options) {
   var refresh = options.currencyRefresh || CurrencyController.DEFAULT_CURRENCY_DELAY;
   this.currencyDelay = refresh * 60000;
   this.bitstampRate = 0; // USD/BTC
-  this.poloniexRate = 0; // BTC/KMD
+  this.poloniexRate = 0; // BTC/SAFE
   this.timestamp = Date.now();
 }
 
@@ -59,7 +59,7 @@ module.exports = CurrencyController;
 
 this other file had some type exceptions that needed changes. the buffer length for your coin is 21 instead of 22, and your coin does not have networktype, or addresstype  stored in the buffer, so there isn't any reason to check for a value that will always be undefined.
 
-/home/ket/komodo-explorer/node_modules/insight-api-komodo/node_modules/bitcore-lib-komodo/lib/address.js
+/home/ket/safecoin-explorer/node_modules/insight-api-safecoin/node_modules/bitcore-lib-safecoin/lib/address.js
 
 ```
 'use strict';

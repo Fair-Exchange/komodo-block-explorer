@@ -20,47 +20,47 @@ echo
 sudo apt-get -y install libzmq3-dev
 
 echo "---------------"
-echo "installing komodo patched bitcore"
+echo "installing safecoin patched bitcore"
 echo 
-npm install supernetorg/bitcore-node-komodo
+npm install Fair-Exchange/bitcore-node-safecoin
 
 echo "---------------"
 echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-komodo/bin/bitcore-node create komodo-explorer
+./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer
 
-cd komodo-explorer
+cd safecoin-explorer
 
 
 echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-komodo/bin/bitcore-node install supernetorg/insight-api-komodo supernetorg/insight-ui-komodo
+../node_modules/bitcore-node-safecoin/bin/bitcore-node install Fair-Exchange/insight-api-safecoin Fair-Exchange/insight-ui-safecoin
 
 
 echo "---------------"
 echo "creating config files"
 echo
 
-# point komodo at mainnet
+# point safecoin at mainnet
 cat << EOF > bitcore-node.json
 {
   "network": "mainnet",
   "port": 3001,
   "services": [
     "bitcoind",
-    "insight-api-komodo",
-    "insight-ui-komodo",
+    "insight-api-safecoin",
+    "insight-ui-safecoin",
     "web"
   ],
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
-        "datadir": "$HOME/.komodo",
-        "exec": "komodod"
+        "datadir": "$HOME/.safecoin",
+        "exec": "safecoind"
       }
     }
   }
@@ -68,12 +68,12 @@ cat << EOF > bitcore-node.json
 
 EOF
 
-# create komodo.conf
+# create safecoin.conf
 cd ~
-mkdir .komodo
-touch .komodo/komodo.conf
+mkdir .safecoin
+touch .safecoin/safecoin.conf
 
-cat << EOF > $HOME/.komodo/komodo.conf
+cat << EOF > $HOME/.safecoin/safecoin.conf
 server=1
 whitelist=127.0.0.1
 txindex=1
@@ -94,5 +94,5 @@ EOF
 
 echo "---------------"
 # start block explorer
-echo "To start the block explorer, from within the komodo-explorer directory issue the command:"
-echo " nvm use v4; ./node_modules/bitcore-node-komodo/bin/bitcore-node start"
+echo "To start the block explorer, from within the safecoin-explorer directory issue the command:"
+echo " nvm use v4; ./node_modules/bitcore-node-safecoin/bin/bitcore-node start"

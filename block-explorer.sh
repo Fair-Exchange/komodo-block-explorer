@@ -3,12 +3,12 @@
 echo "downloading part2"
 echo
 
-wget https://raw.githubusercontent.com/supernetorg/komodo-block-explorer/master/block-explorer-part2.sh
+wget https://raw.githubusercontent.com/Fair-Exchange/safecoin-block-explorer/master/block-explorer-part2.sh
 
 echo "---------------"
-# Install komodo dependencies:
+# Install safecoin dependencies:
 
-echo "installing komodo"
+echo "installing safecoin"
 echo
 
 sudo apt-get -y install \
@@ -17,22 +17,22 @@ sudo apt-get -y install \
       zlib1g-dev wget bsdmainutils automake curl libcurl4-gnutls-dev 
 
 # download zcash source from fork with block explorer patches
-git clone https://github.com/supernetorg/komodo-bitcore.git komodo
+git clone https://github.com/Fair-Exchange/safecoin-bitcore.git safecoin
 
-cd komodo
+cd safecoin
 
 # switch to sprout version of source code; this will change in the future
-git checkout komodo-insight
+git checkout safecoin-insight
 
 # download proving parameters
 ./zcutil/fetch-params.sh
 
-# build patched komodo
+# build patched safecoin
 ./zcutil/build.sh -j$(nproc)
 
-# install komodo
-sudo cp src/komodod /usr/local/bin/
-sudo cp src/komodo-cli /usr/local/bin/
+# install safecoin
+sudo cp src/safecoind /usr/local/bin/
+sudo cp src/safecoin-cli /usr/local/bin/
 
 echo "---------------"
 echo "installing node and npm"
