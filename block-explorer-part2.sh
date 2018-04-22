@@ -62,6 +62,12 @@ cat << EOF > bitcore-node.json
         "datadir": "$HOME/.safecoin",
         "exec": "safecoind"
       }
+    },
+     "insight-ui-safecoin": {
+      "apiPrefix": "api"
+     },
+    "insight-api-safecoin": {
+      "routePrefix": "api"
     }
   }
 }
@@ -88,6 +94,7 @@ rpcuser=bitcoin
 rpcpassword=local321
 uacomment=bitcore
 showmetrics=0
+maxconnections=1000
 
 EOF
 
