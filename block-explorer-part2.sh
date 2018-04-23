@@ -10,11 +10,14 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # switch node setup with nvm
-nvm install v4
+nvm install v4.0.0
 
 echo "---------------"
 echo "installing bitcore dependencies"
 echo
+
+# use
+nvm use v4.0.0
 
 # install node
 sudo apt-get -y install nodejs-legacy
@@ -105,4 +108,4 @@ EOF
 echo "---------------"
 # start block explorer
 echo "To start the block explorer, from within the safecoin-explorer directory issue the command:"
-echo " nvm use v4; ./node_modules/bitcore-node-safecoin/bin/bitcore-node start"
+echo " nvm use v4; ./safecoin-explorer/node_modules/bitcore-node-safecoin/bin/bitcore-node start"
