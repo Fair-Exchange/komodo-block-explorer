@@ -16,6 +16,9 @@ echo "---------------"
 echo "installing bitcore dependencies"
 echo
 
+# install node
+sudo apt-get -y install nodejs-legacy
+
 # install zeromq
 sudo apt-get -y install libzmq3-dev
 
