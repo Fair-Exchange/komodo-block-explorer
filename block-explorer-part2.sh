@@ -10,14 +10,12 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # switch node setup with nvm
-nvm install v4.0.0
+nvm install v4
 
 echo "---------------"
 echo "installing bitcore dependencies"
 echo
 
-# use
-nvm use v4.0.0
 
 # install node
 sudo apt-get -y install nodejs-legacy
@@ -92,10 +90,10 @@ txindex=1
 addressindex=1
 timestampindex=1
 spentindex=1
-zmqpubrawtx=tcp://127.0.0.1:28769
-zmqpubhashblock=tcp://127.0.0.1:28769
+zmqpubrawtx=tcp://127.0.0.1:28771
+zmqpubhashblock=tcp://127.0.0.1:28771
 rpcallowip=127.0.0.1
-rpcport=8769
+rpcport=8771
 rpcuser=bitcoin
 rpcpassword=local321
 uacomment=bitcore
