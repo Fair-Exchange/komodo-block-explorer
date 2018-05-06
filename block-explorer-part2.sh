@@ -106,4 +106,4 @@ EOF
 echo "---------------"
 # start block explorer
 echo "To start the block explorer, from within the safecoin-explorer directory issue the command:"
-echo " nvm use v4; ./safecoin-explorer/node_modules/bitcore-node-safecoin/bin/bitcore-node start"
+echo " nvm use v4; ./node_modules/bitcore-node-safecoin/bin/bitcore-node start"
