@@ -17,7 +17,7 @@ sudo apt-get -y install \
       zlib1g-dev wget bsdmainutils automake curl libcurl4-gnutls-dev 
 
 # download zcash source from fork with block explorer patches
-git clone https://github.com/Fair-Exchange/safecoin-bitcore.git safecoin
+git clone -b bitcore https://github.com/Fair-Exchange/safecoin.git safecoin
 
 cd safecoin
 
