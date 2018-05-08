@@ -26,7 +26,7 @@ sudo apt-get -y install libzmq3-dev
 echo "---------------"
 echo "installing safecoin patched bitcore"
 echo 
-npm install Fair-Exchange/bitcore-node-safecoin
+npm install -b testnet Fair-Exchange/bitcore-node-safecoin
 
 echo "---------------"
 echo "setting up bitcore"
