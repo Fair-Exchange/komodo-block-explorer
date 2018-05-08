@@ -64,7 +64,7 @@ cat << EOF > bitcore-node.json
     "bitcoind": {
       "spawn": {
         "datadir": "$HOME/.safecoin/testnet",
-        "exec": "safecoind"
+        "exec": "safecoind-testnet"
       }
     },
      "insight-ui-safecoin": {
@@ -76,6 +76,8 @@ cat << EOF > bitcore-node.json
   }
 }
 EOF
+
+sudo cp /usr/local/bin/safecoind /usr/local/bin/safecoind-testnet
 
 # create safecoin.conf
 cd ~
@@ -90,8 +92,8 @@ txindex=1
 addressindex=1
 timestampindex=1
 spentindex=1
-zmqpubrawtx=tcp://127.0.0.1:28771
-zmqpubhashblock=tcp://127.0.0.1:28771
+zmqpubrawtx=tcp://127.0.0.1:28772
+zmqpubhashblock=tcp://127.0.0.1:28772
 rpcallowip=127.0.0.1
 rpcport=18771
 rpcuser=bitcoin
