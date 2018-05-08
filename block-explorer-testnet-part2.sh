@@ -33,7 +33,7 @@ echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer-testnet
+./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer-testnet --testnet
 
 cd safecoin-explorer-testnet
 
