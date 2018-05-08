@@ -26,14 +26,14 @@ sudo apt-get -y install libzmq3-dev
 echo "---------------"
 echo "installing safecoin patched bitcore"
 echo 
-npm install Fair-Exchange/bitcore-node-safecoin
+npm install -b testnet Fair-Exchange/bitcore-node-safecoin
 
 echo "---------------"
 echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer-testnet --testnet
+./node_modules/bitcore-node-safecoin-testnet/bin/bitcore-node create safecoin-explorer-testnet --testnet
 
 cd safecoin-explorer-testnet
 
@@ -42,7 +42,7 @@ echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-safecoin/bin/bitcore-node install Fair-Exchange/insight-api-safecoin Fair-Exchange/insight-ui-safecoin
+../node_modules/bitcore-node-safecoin-testnet/bin/bitcore-node install Fair-Exchange/insight-api-safecoin Fair-Exchange/insight-ui-safecoin
 
 
 echo "---------------"
@@ -64,7 +64,7 @@ cat << EOF > bitcore-node.json
     "bitcoind": {
       "spawn": {
         "datadir": "$HOME/.safecoin/testnet",
-        "exec": "safecoind"
+        "exec": "safecoind-testnet"
       }
     },
      "insight-ui-safecoin": {
@@ -76,6 +76,8 @@ cat << EOF > bitcore-node.json
   }
 }
 EOF
+
+sudo cp /usr/local/bin/safecoind /usr/local/bin/safecoind-testnet
 
 # create safecoin.conf
 cd ~
@@ -90,8 +92,8 @@ txindex=1
 addressindex=1
 timestampindex=1
 spentindex=1
-zmqpubrawtx=tcp://127.0.0.1:28771
-zmqpubhashblock=tcp://127.0.0.1:28771
+zmqpubrawtx=tcp://127.0.0.1:28772
+zmqpubhashblock=tcp://127.0.0.1:28772
 rpcallowip=127.0.0.1
 rpcport=18771
 rpcuser=bitcoin
