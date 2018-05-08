@@ -64,7 +64,7 @@ cat << EOF > bitcore-node.json
     "bitcoind": {
       "spawn": {
         "datadir": "$HOME/.safecoin/testnet",
-        "exec": "safecoind -datadir=$HOME/.safecoin/testnet"
+        "exec": "safecoind"
       }
     },
      "insight-ui-safecoin": {
@@ -99,6 +99,7 @@ rpcpassword=local321
 uacomment=bitcore
 showmetrics=0
 maxconnections=1000
+datadir=datadir=~.safecoin/testnet
 EOF
 
 
