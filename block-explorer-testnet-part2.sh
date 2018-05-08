@@ -84,6 +84,7 @@ touch .safecoin/testnet/safecoin.conf
 
 cat << EOF > $HOME/.safecoin/testnet/safecoin.conf
 server=1
+testnet=1
 whitelist=127.0.0.1
 txindex=1
 addressindex=1
