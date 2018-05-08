@@ -33,7 +33,7 @@ echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer-testnet --testnet
+./node_modules/bitcore-node-safecoin-testnet/bin/bitcore-node create safecoin-explorer-testnet --testnet
 
 cd safecoin-explorer-testnet
 
@@ -42,7 +42,7 @@ echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-safecoin/bin/bitcore-node install Fair-Exchange/insight-api-safecoin Fair-Exchange/insight-ui-safecoin
+../node_modules/bitcore-node-safecoin-testnet/bin/bitcore-node install Fair-Exchange/insight-api-safecoin Fair-Exchange/insight-ui-safecoin
 
 
 echo "---------------"
