@@ -17,12 +17,9 @@ sudo apt-get -y install \
       zlib1g-dev wget bsdmainutils automake curl libcurl4-gnutls-dev 
 
 # download zcash source from fork with block explorer patches
-git clone -b bitcore https://github.com/Fair-Exchange/safecoin.git safecoin
+git clone https://github.com/Fair-Exchange/safecoin.git safecoin
 
 cd safecoin
-
-# switch to sprout version of source code; this will change in the future
-git checkout safecoin-insight
 
 # download proving parameters
 ./zcutil/fetch-params.sh
