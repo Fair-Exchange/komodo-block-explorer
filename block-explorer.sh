@@ -3,7 +3,7 @@
 echo "downloading part2"
 echo
 
-wget https://raw.githubusercontent.com/Fair-Exchange/safecoin-block-explorer/master/block-explorer-part2.sh
+wget https://raw.githubusercontent.com/Fair-Exchange/safecoin-block-explorer/dev/block-explorer-part2.sh
 
 echo "---------------"
 # Install safecoin dependencies:
