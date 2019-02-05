@@ -30,28 +30,37 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo systemctl enable mongod
 sudo service mongod start
-
+mkdir new-explorer
+cd new-explorer
 echo "---------------"
 echo "installing safecoin patched bitcore"
 echo 
-npm install Fair-Exchange/bitcore-node-safecoin#dev
-
+git clone -b dev https://github.com/Fair-Exchange/bitcore-node-safecoin.git
+cd bitcore-node-safecoin
+npm install
 echo "---------------"
 echo "setting up bitcore"
 echo
-
 # setup bitcore
-./node_modules/bitcore-node-safecoin/bin/bitcore-node create safecoin-explorer
+./bin/bitcore-node create ../safecoin-explorer
 
-cd safecoin-explorer
-
+cd ../safecoin-explorer
 
 echo "---------------"
 echo "installing insight UI"
 echo
+cd node_modules
+git clone -b dev https://github.com/Fair-Exchange/insight-api-safecoin.git
+git clone -b dev https://github.com/Fair-Exchange/insight-ui-safecoin.git
+cd insight-api-safecoin
+npm install
+cd ..
+cd insight-ui-safecoin
+npm install
+cd ..
+cd ..
 
-../node_modules/bitcore-node-safecoin/bin/bitcore-node install Fair-Exchange/insight-api-safecoin#dev Fair-Exchange/insight-ui-safecoin#dev
-
+echo "Explorer is installed"
 
 echo "---------------"
 echo "creating config files"
@@ -77,7 +86,7 @@ cat << EOF > bitcore-node.json
     "bitcoind": {
       "sendTxLog": "./data/pushtx.log",
       "spawn": {
-        "datadir": "$HOME/.safecoin",
+        "datadir": "$HOME/.safecoin-explorer",
         "exec": "safecoind",
         "rpcqueue": 1000,
         "rpcport": 8771,
@@ -102,15 +111,14 @@ cat << EOF > bitcore-node.json
     }
   }
 }
-
 EOF
 
 # create safecoin.conf
 cd ~
-mkdir .safecoin
-touch .safecoin/safecoin.conf
+mkdir .safecoin-explorer
+touch .safecoin-explorer/safecoin.conf
 
-cat << EOF > $HOME/.safecoin/safecoin.conf
+cat << EOF > $HOME/.safecoin-explorer/safecoin.conf
 server=1
 whitelist=127.0.0.1
 txindex=1
@@ -132,11 +140,10 @@ maxtxfee=1.0
 dbmaxfilesize=64
 showmetrics=0
 maxconnections=1000
-
 EOF
 
 
 echo "---------------"
 # start block explorer
 echo "To start the block explorer, from within the safecoin-explorer directory issue the command:"
-echo " nvm use v4; ./node_modules/bitcore-node-safecoin/bin/bitcore-node start"
+echo " nvm use v6; ./node_modules/bitcore-node-safecoin/bin/bitcore-node start"
